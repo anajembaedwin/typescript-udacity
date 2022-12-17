@@ -1,11 +1,15 @@
 import express from "express";
-const MYNUM: number = 7;
-const MYSTRING: string = "Welcome to connect section";
-
-console.log(`My number is ${MYNUM} and my greeting is ${MYSTRING}`);
 
 const app = express();
 const port = 3000;
+
+const welcomeMessage: any = {"Message": "Welcome to connect section"};
+
+app.use(express.json());
+
+app.get('/', (req, res) =>  {
+    res.json(welcomeMessage);
+})
 
 
 app.listen(port, ()=> {console.log(`listen on port ${port}`)});
